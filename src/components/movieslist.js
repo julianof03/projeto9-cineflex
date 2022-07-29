@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+
 export default function Movieslist(){
     const [items, setItems] = useState([]);
-    const params = useParams();
     useEffect(() => {
 		const requisicao = axios.get("https://mock-api.driven.com.br/api/v7/cineflex/movies");
 
@@ -14,7 +15,7 @@ export default function Movieslist(){
 	}, []);
     return(
         <Container>
-           {items.map(item => <div><img src={item.posterURL} alt="poster"/></div>)} 
+           {items.map(item => <div><Link to={`/filme/${item.id}`}><img src={item.posterURL} alt="poster"/></Link></div>)} 
         </Container>
     );
 }

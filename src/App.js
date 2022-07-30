@@ -3,6 +3,7 @@ import React from "react";
 import Firstscreen from "./components/firstscreen";
 import Movie from "./components/movie";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Session from "./components/Session";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Firstscreen />} />
         <Route path="/filme/:movieId" element={<Movie />} />
+        <Route path="/assentos/:idSessao" element={<Session />} />
 			</Routes>
 		</BrowserRouter>
     

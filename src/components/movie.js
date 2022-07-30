@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect} from "react";
 import styled from "styled-components";
@@ -13,15 +13,12 @@ export default function Movie(){
 			setItems(resposta.data.days);
 		});
 	}, []);
-    const newarr = [];
-    newarr.push(items);
-    console.log(items)
     return(
         <Container>
            {items.map(item => 
             <div className="days">
                 <p>{item.weekday} - {item.date}</p>
-                <div>{item.showtimes.map(days => <div className="button">{days.name}</div>)}</div>
+                <div>{item.showtimes.map(days => <Link to={`/assentos/${days.id}`}><div className="button">{days.name}</div></Link>)}</div>
             </div>)} 
         </Container>
     );

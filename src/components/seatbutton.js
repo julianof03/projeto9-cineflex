@@ -1,9 +1,20 @@
 import { useState} from "react";
 import styled from "styled-components";
-export default function Renderbutton({item}){
+
+export default function Renderbutton({item, selecionados, SetSelecionados, newarr}){
+
+    const disponivel = item.isAvailable;
     const[clicked , SetClicked ] = useState(false);
-    console.log(clicked);
-    return(<Wrapper onClick={() => SetClicked(!clicked) } className="disponivel">{item.name}</Wrapper>);
+    if(disponivel){
+        return(<Wrapper onClick={() => {SetClicked(!clicked);  newarr = [...selecionados, item.id];;SetSelecionados(newarr);;
+        console.log(selecionados);}} 
+        clicked = {clicked} 
+        disponivel = {disponivel}>{item.name}</Wrapper>);  
+    }else{
+        return(<Wrapper 
+            clicked = {clicked} 
+            disponivel = {disponivel}>{item.name}</Wrapper>); 
+    }
 }
 const Wrapper = styled.div`
     display: flex;
@@ -19,6 +30,19 @@ const Wrapper = styled.div`
     border-width: 2px;
     border-style: solid;
     color:#000000;
-    background-color: ${(clicked) => (clicked ? 'c3cfd9':'fbe192') };
+    background-color: ${(props) => {
+        if(props.disponivel)
+        {
+            if(props.clicked){
+                return('#8dd7cf');
+            }else{
+                return('#c3cfd9');
+            }
+           
+        }else{
+            return('#fbe192');
+        }
+        } };
     border-color:#808f9d;
+
 `;

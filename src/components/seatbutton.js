@@ -6,10 +6,17 @@ export default function Renderbutton({item, selecionados, SetSelecionados, newar
     const disponivel = item.isAvailable;
     const[clicked , SetClicked ] = useState(false);
     if(disponivel){
-        return(<Wrapper onClick={() => {SetClicked(!clicked);  newarr = [...selecionados, item.id];;SetSelecionados(newarr);;
-        console.log(selecionados);}} 
-        clicked = {clicked} 
-        disponivel = {disponivel}>{item.name}</Wrapper>);  
+        return(
+        <Wrapper onClick={() => {
+            if(!clicked){
+                newarr = [...selecionados, item.id];
+                SetSelecionados(newarr);
+                SetClicked(!clicked);  
+            }     
+            console.log(selecionados);}} 
+            clicked = {clicked} 
+            disponivel = {disponivel}>{item.name}
+        </Wrapper>);  
     }else{
         return(<Wrapper 
             clicked = {clicked} 

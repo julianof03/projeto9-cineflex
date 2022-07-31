@@ -12,10 +12,11 @@ function Formulario({selecionados}){
     function handleForm(event){
         event.preventDefault();
         const requisição = axios.post("https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many",{
-            name,
-            cpf,
+             name,
+             cpf,
             ids
         });
+        console.log(name, cpf, ids);
     }
     
 

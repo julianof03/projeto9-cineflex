@@ -18,7 +18,7 @@ export default function Movie(){
            {items.map(item => 
             <div className="days">
                 <p>{item.weekday} - {item.date}</p>
-                <div>{item.showtimes.map(days => <Link to={`/assentos/${days.id}`}><div className="button">{days.name}</div></Link>)}</div>
+                <div>{item.showtimes.map(days => <Link to={`/assentos/${days.id}`} style={{textDecoration: "none"}}><div className="button" style={{textDecoration: "none"}} >{days.name}</div></Link>)}</div>
             </div>)} 
         </Container>
     );
@@ -31,11 +31,11 @@ color: #293b45;
 font-family: 'Roboto', sans-serif;
 
 display: flex;
+
 flex-direction: column;
 justify-content: space-between;
 align-items: flex-start;
 align-content: center;
-
 overflow-y: scroll;
 div{
     height: 83px;

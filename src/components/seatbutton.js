@@ -12,8 +12,7 @@ export default function Renderbutton({item, selecionados, SetSelecionados, newar
                 newarr = [...selecionados, item.id];
                 SetSelecionados(newarr);
                 SetClicked(!clicked);  
-            }     
-            console.log(selecionados);}} 
+            }     }} 
             clicked = {clicked} 
             disponivel = {disponivel}>{item.name}
         </Wrapper>);  
@@ -34,7 +33,7 @@ const Wrapper = styled.div`
     border-radius:13px;
     width: 26px;
     height: 26px;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
     color:#000000;
     background-color: ${(props) => {
@@ -50,6 +49,18 @@ const Wrapper = styled.div`
             return('#fbe192');
         }
         } };
-    border-color:#808f9d;
+    border-color:${(props) => {
+        if(props.disponivel)
+        {
+            if(props.clicked){
+                return('#1aae9e');
+            }else{
+                return('#7b8b99');
+            }
+           
+        }else{
+            return('#f7c52b');
+        }
+        } };
 
 `;

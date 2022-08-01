@@ -18,6 +18,8 @@ export default function Renderbutton({item, selecionados, SetSelecionados, newar
         </Wrapper>);  
     }else{
         return(<Wrapper 
+            onClick={() => {
+                alert("Assento não Disponivel");     }} 
             clicked = {clicked} 
             disponivel = {disponivel}>{item.name}</Wrapper>); 
     }

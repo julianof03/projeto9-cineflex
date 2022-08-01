@@ -23,7 +23,7 @@ const Span = styled.div`
     justify-content:flex-start;
     position:fixed;
     bottom:0px;
-    width:100%;
+    width:375px;
     height:117px;
     background-color:#dfe6ed;
 }
